@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Story Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Story Generator</h1>
+        
+        <form method="POST">
+            <label for="genre">Select Genre:</label>
+            <select name="genre" id="genre" required>
+                <option value="adventure">Adventure</option>
+                <option value="sci-fi">Sci-Fi</option>
+                <option value="mystery">Mystery</option>
+            </select>
+            <br>
+            <label for="character_name">Character Name:</label>
+            <input type="text" name="character_name" id="character_name" required>
+            <br>
+            <label for="setting">Setting:</label>
+            <input type="text" name="setting" id="setting" required>
+            <br>
+            <label for="key_event">Key Event:</label>
+            <input type="text" name="key_event" id="key_event" required>
+            <br><br>
+            <button type="submit">Generate Story</button>
+        </form>
+
+        {% if story %}
+        <h2>Your Generated Story:</h2>
+        <p>{{ story }}</p>
+        <br>
+        <button onclick="window.location.reload()">Generate Another Story</button>
+        {% endif %}
+    </div>
+</body>
+</html>
